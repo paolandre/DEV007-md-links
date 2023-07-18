@@ -4,5 +4,11 @@
   },
   "parserOptions": {
     "ecmaVersion": 8
+  },
+  "extends": [
+    "airbnb"
+  ],
+  "rules": {
+    "max-len": ["error", { "code": 80 }]
   }
 }
