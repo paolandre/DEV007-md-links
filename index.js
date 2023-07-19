@@ -28,7 +28,7 @@ const mdLinks = (route) => new Promise((resolve, reject) => {
     if (!path.isAbsolute(route)) {
       // Convierte la ruta en absoluta reasignando a absolutePath
       absolutePath = path.resolve(route);
-      console.log(chalk.inverse.magenta('#13'));
+      console.log(chalk.inverse.magenta('#14'));
     }
 
     // si la ruta que se recibe es absoluta, se asigna a absolutePath
@@ -48,27 +48,24 @@ const mdLinks = (route) => new Promise((resolve, reject) => {
       // Si no es un archivo ni un directorio
       if (path.extname(route) !== '.md' && !fs.statSync(absolutePath).isDirectory()) {
         reject(Error('No es un archivo .md')); // No es archivo md
+        console.log(chalk.inverse.magenta('#15'));
       }
 
-      // Verifica si es un directorio
+      // Si es un directorio
       if (fs.statSync(absolutePath).isDirectory()) {
         console.log(chalk.inverse.magenta('#2'));
-        try {
-          // Obtiene los archivos .md en el directorio
-          const mdFiles = getMdFilesInDirectory(absolutePath);
-          console.log(chalk.inverse.magenta('#4'));
+        // Obtiene los archivos .md en el directorio
+        const mdFiles = getMdFilesInDirectory(absolutePath);
+        console.log(chalk.inverse.magenta('#4'));
 
-          // Si no se almacenan archivos....
-          if (mdFiles.length === 0) {
-            reject(Error('No se encontraron archivos .md en el directorio'));
-            console.log(chalk.inverse.magenta('#5'));
-            return;
-          }
-          resolve(mdFiles); // Resuelve la promesa con el array de archivos .md
-        } catch (error) {
-          reject(Error('Error de lectura del directorio'));
-          console.log(chalk.inverse.magenta('#3'));
+        // Si no se encontraron archivos .md en el directorio, rechaza la promesa
+        if (mdFiles.length === 0) {
+          reject(Error('No se encontraron archivos .md en el directorio'));
+          console.log(chalk.inverse.magenta('#5'));
+          return;
         }
+        // Resuelve la promesa con el array de archivos .md
+        resolve(mdFiles);
       }
     }
   } else {
@@ -79,15 +76,15 @@ const mdLinks = (route) => new Promise((resolve, reject) => {
 });
 
 //  RUTAS
-const rutaAbsolutaCarpeta = 'C:/Users/andre/OneDrive/Escritorio/Proyectos/Laboratoria/DEV007-md-links/Directorio Markdown/Directorio Markdown dos';
-const directorioRutaRelativa = 'Directorio Markdown/Directorio Markdown dos';
-const directorioVacio = 'Directorio Markdown/Directorio Markdown dos/Directorio Markdown tres';
+const rutaAbsolutaDirectorioDos = 'C:/Users/andre/OneDrive/Escritorio/Proyectos/Laboratoria/DEV007-md-links/Directorio Uno/Directorio Dos';
+const directorioRutaRelativa = 'Directorio Uno';
+const directorioVacio = 'Directorio Uno/Directorio Dos/Directorio Tres';
 const archivoMD = 'README.md';
 const archivoNoMD = 'cli.js';
 const rutaAbsolutaArchivo = 'C:/Users/andre/OneDrive/Escritorio/Proyectos/Laboratoria/DEV007-md-links/README.md';
 const rutaNoExiste = 'NoExiste.md';
 
-mdLinks(directorioRutaRelativa)
+mdLinks(rutaNoExiste)
   .then((rutaAbsoluta) => {
     console.log(chalk.inverse.cyan(rutaAbsoluta));
   })
