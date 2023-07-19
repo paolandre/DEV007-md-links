@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable max-len */
 import chalk from 'chalk';
 import mdLinks from './index.js';
 
