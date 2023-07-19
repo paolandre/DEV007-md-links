@@ -4,26 +4,12 @@
 import fs from 'fs';
 import chalk from 'chalk';
 import path from 'path';
-
-//  Función para obtener los archivos .md en un directorio dado
-const getMdFilesInDirectory = (directory) => {
-  // Lee los archivos en el directorio
-  const files = fs.readdirSync(directory);
-
-  // Filtra los archivos para obtener solo los archivos .md
-  const mdFiles = files
-    .filter((file) => path.extname(file) === '.md');
-  // Construye la ruta completa de cada archivo .md
-  // .map((file) => path.join(directory, file));
-
-  // Retorna el array de archivos .md
-  console.log(chalk.inverse.magenta('#12'));
-  return mdFiles;
-};
+import getMdFilesInDirectory from './functions.js';
 
 const mdLinks = (route) => new Promise((resolve, reject) => {
   let absolutePath = ''; // se deja vacía para reasignarla más adelante
-  if (fs.existsSync(route)) { // Si la ruta existe...
+  if (fs.existsSync(route)) {
+    // Si la ruta existe...
     // Si no es absoluta...
     if (!path.isAbsolute(route)) {
       // Convierte la ruta en absoluta reasignando a absolutePath
@@ -46,7 +32,10 @@ const mdLinks = (route) => new Promise((resolve, reject) => {
       }
 
       // Si no es un archivo ni un directorio
-      if (path.extname(route) !== '.md' && !fs.statSync(absolutePath).isDirectory()) {
+      if (
+        path.extname(route) !== '.md'
+        && !fs.statSync(absolutePath).isDirectory()
+      ) {
         reject(Error('No es un archivo .md')); // No es archivo md
         console.log(chalk.inverse.magenta('#15'));
       }

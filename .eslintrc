@@ -1,6 +1,7 @@
 {
   "env": {
-    "node": true
+    "node": true,
+    "jest": true
   },
   "parserOptions": {
     "ecmaVersion": 8
@@ -9,6 +10,15 @@
     "airbnb"
   ],
   "rules": {
-    "max-len": ["error", { "code": 80 }]
+    "max-len": [
+      "error",
+      {
+        "code": 80
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "always"
+    ]
   }
 }
