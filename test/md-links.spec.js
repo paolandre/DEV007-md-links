@@ -13,7 +13,7 @@ describe('mdLinks', () => {
   it(
     'Debería rechazar la promesa cuando el path no existe',
     () => (mdLinks('./hola/mundo.md')).catch((error) => {
-      expect(error).toBe('la ruta no existe');
+      expect(error.message).toEqual('La ruta no existe');
     }),
   );
 

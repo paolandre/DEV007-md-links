@@ -73,7 +73,7 @@ const archivoNoMD = 'cli.js';
 const rutaAbsolutaArchivo = 'C:/Users/andre/OneDrive/Escritorio/Proyectos/Laboratoria/DEV007-md-links/README.md';
 const rutaNoExiste = 'NoExiste.md';
 
-mdLinks(rutaNoExiste)
+mdLinks(rutaAbsolutaDirectorioDos)
   .then((rutaAbsoluta) => {
     console.log(chalk.inverse.cyan(rutaAbsoluta));
   })
