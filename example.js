@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable max-len */
 import chalk from 'chalk';
-import mdLinks from './index.js';
+import mdLinks from './mdLinks.js';
 
 // mdLinks verifica que una ruta que no existe
 mdLinks('/ruta/noexiste/')

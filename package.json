@@ -24,10 +24,11 @@
   },
   "dependencies": {
     "chalk": "^4.1.2",
-    "eslint-config-airbnb": "^19.0.4"
+    "eslint-config-airbnb": "^19.0.4",
+    "terminal-kit": "^3.0.0"
   },
   "scripts": {
-    "start": "babel-node index.js",
+    "start": "babel-node mdLinks.js",
     "test": "jest --coverage"
   }
 }

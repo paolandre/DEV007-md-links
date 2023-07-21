@@ -10,12 +10,8 @@
     "airbnb"
   ],
   "rules": {
-    "max-len": [
-      "error",
-      {
-        "code": 80
-      }
-    ],
+    "max-len": "error",
+    "prefer-promise-reject-errors": "error",
     "import/extensions": [
       "error",
       "always"
