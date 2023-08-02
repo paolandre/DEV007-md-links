@@ -12,64 +12,89 @@ import {
 } from './fileUtils.js';
 import { readMdFiles, getLinks } from './mdLinkExtractor.js';
 import validateLink from './validate.js';
+import calculateStats from './stats.js';
 
 const mdLinks = (route, options) => new Promise((resolve, reject) => {
   if (!fs.existsSync(route)) {
-    reject(Error('La ruta no existe'));
-    console.log(chalk.inverse.magenta('La ruta existe'));
-    return;
+    console.log(chalk.inverse.magenta('La ruta no existe'));
+    reject(new Error('La ruta no existe'));
   }
+
   const absolutePath = convertToAbsolutePath(route);
-  const mdFileArray = arrayFile(absolutePath);
   const isMdFile = mdFile(absolutePath);
   const isDir = directory(absolutePath);
   let linksMds = [];
-  let mdFiles = []; // Declara la variable fuera del bloque if.
+  let mdFiles = [];
+
   if (!isMdFile && !isDir) {
-    reject(Error('No es un archivo .md ni un directorio'));
     console.log(chalk.inverse.magenta('No es directorio ni archivo'));
-    return;
+    reject(new Error('No es un archivo .md ni un directorio'));
   }
+
   if (isDir) {
     console.log(chalk.inverse.magenta('Es directorio'));
-    mdFiles = getMdFilesInDirectories(absolutePath); // Asigna el valor aquí.
+    mdFiles = getMdFilesInDirectories(absolutePath);
   } else if (isMdFile) {
     mdFiles.push(absolutePath);
   }
-  // Si no se encontraron archivos .md en el directorio, rechaza la promesa
+
   if (mdFiles.length === 0) {
-    reject(Error('No hay arhivos .md'));
     console.log(chalk.inverse.magenta('No hay archivos md'));
+    reject(new Error('No hay arhivos .md'));
   }
-  // Verifica si mdFiles está definida antes de usarla.
+
   if (mdFiles && mdFiles.length > 0) {
     const contentMdFiles = readMdFiles(mdFiles);
     linksMds = getLinks(contentMdFiles, mdFiles);
   }
 
-  if (options && options.validate) {
-    // Usamos Promise.all para validar todos los links al mismo tiempo
+  if (!options) {
+    const noOptionsInfo = linksMds.map((link) => {
+      const text = `Texto: ${link.text}`;
+      const url = `URL: ${link.url}`;
+      const file = `Archivo: ${link.file}`;
+      return `${text}\n${url}\n${file}\n`;
+    }).join('\n');
+    resolve(noOptionsInfo);
+  } else if (options.validate && options.stats) {
     Promise.all(linksMds.map((singleLink) => validateLink(singleLink.url)))
       .then((validatedLinks) => {
-        // Una vez que todos los links han sido validados, los resolvemos
+        const statsOutput = calculateStats(validatedLinks);
         const formattedLinks = validatedLinks.map((validatedLink, index) => {
-          const text = chalk.cyan(`Texto: ${linksMds[index].text}`);
-          const url = chalk.magenta(`URL: ${linksMds[index].url}`);
-          const file = chalk.blue(`Archivo: ${linksMds[index].file}`);
-          const href = chalk.yellow(`Href: ${validatedLink.href}`);
-          const status = chalk.greenBright(`Estado: ${validatedLink.status}`);
-          const ok = chalk.cyan(`Ok: ${validatedLink.ok}`);
-          return `${text}\n${url}\n${file}\n${href}\n${status}\n${ok}\n\n`;
+          const text = `Texto: ${linksMds[index].text}`;
+          const url = `URL: ${linksMds[index].url}`;
+          const file = `Archivo: ${linksMds[index].file}`;
+          const href = `Href: ${validatedLink.href}`;
+          const status = `Estado: ${validatedLink.status}`;
+          const ok = `Ok: ${validatedLink.ok}`;
+          return `\n${text}\n${url}\n${file}\n${href}\n${status}\n${ok}\n`;
+        });
+        resolve({ statsOutput, formattedLinks });
+      })
+      .catch((error) => {
+        reject(new Error('Hubo un problema al validar y obtener las estadisticas de los links'));
+      });
+  } else if (options.validate) {
+    Promise.all(linksMds.map((singleLink) => validateLink(singleLink.url)))
+      .then((validatedLinks) => {
+        const formattedLinks = validatedLinks.map((validatedLink, index) => {
+          const text = `Texto: ${linksMds[index].text}`;
+          const url = `URL: ${linksMds[index].url}`;
+          const file = `Archivo: ${linksMds[index].file}`;
+          const href = `Href: ${validatedLink.href}`;
+          const status = `Estado: ${validatedLink.status}`;
+          const ok = `Ok: ${validatedLink.ok}`;
+          return `\n${text}\n${url}\n${file}\n${href}\n${status}\n${ok}\n`;
         });
         resolve(formattedLinks);
       })
       .catch((error) => {
-        // Si ocurre algún error durante la validación, lo rechazamos
         reject(error);
       });
-    return;
+  } else if (options.stats) {
+    const statsOutput = calculateStats(linksMds);
+    resolve(statsOutput);
   }
-  resolve(linksMds);
 });
 
 //  RUTAS
@@ -82,10 +107,12 @@ const rutaAbsolutaArchivo = 'C:/Users/andre/OneDrive/Escritorio/Proyectos/Labora
 const rutaNoExiste = 'NoExiste.md';
 const rutaUnaCarpetaConArchivo = 'Directorio Uno/Directorio Tres';
 const noLinks = 'Directorio Uno/Directorio Tres/sinlinks.md';
+const archivoConPocosLinks = 'Directorio Uno/Directorio Tres/md-uno.md';
 
-mdLinks(noLinks, { validate: true })
-  .then((rutaAbsoluta) => {
-    console.log(chalk.cyan(rutaAbsoluta));
+mdLinks(rutaAbsolutaDirectorioDos, { stats: true, validate: true })
+  .then(({ statsOutput, formattedLinks }) => {
+    console.log(chalk.cyan(formattedLinks));
+    console.log(chalk.magenta(statsOutput));
   })
   .catch((error) => {
     console.error(chalk.magenta('Error:', error));
