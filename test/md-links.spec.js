@@ -200,7 +200,7 @@ describe('validateLink', () => {
     expect(result).toEqual(expected);
   });
 });
-
+// -------------------------------MDLINKS.JS------------------------------
 describe('mdLinks', () => {
   it('debería ser una función', () => {
     expect(typeof mdLinks).toBe('function');
