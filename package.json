@@ -1,18 +1,32 @@
 {
-  "name": "md-links",
-  "version": "0.1.0",
+  "name": "md-links-validator-stats",
+  "version": "0.1.2",
   "engines": {
     "node": ">=16.x"
+  },
+  "description": "Encuentra links en archivos .md y muestra estadísticas de su estado",
+  "author": "Paola Andrea Ramirez Quintero",
+  "type": "module",
+  "main": "mdLinks.js",
+  "bin": {
+    "mdLinks": "cli.js"
+  },
+  "keywords": [
+    "node.js",
+    "http",
+    "mdlinks",
+    "project"
+  ],
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paolandre/DEV007-md-links"
   },
   "bootcamp": {
     "createdAt": "2023-06-20T14:05:58.211Z",
     "version": "6.3.0",
     "commit": "e129ade681adff8cbb19f82e63f688fef2f08f32"
   },
-  "bin": {
-    "md-links": "src/cli.js"
-  },
-  "type": "module",
   "devDependencies": {
     "@babel/cli": "^7.22.6",
     "@babel/core": "^7.22.8",
@@ -30,7 +44,8 @@
     "boxen": "^7.1.1",
     "chalk": "^4.1.2",
     "eslint-config-airbnb": "^19.0.4",
-    "gradient-string": "^2.0.2"
+    "gradient-string": "^2.0.2",
+    "md-links-validator-stats": "^0.1.1"
   },
   "scripts": {
     "start": "babel-node mdLinks.js",

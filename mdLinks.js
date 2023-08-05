@@ -9,7 +9,9 @@ import { readMdFiles, getLinks } from './mdLinkExtractor.js';
 import validateLink from './validate.js';
 import calculateStats from './stats.js';
 
+// Función principal de mdLinks: Analiza y extrae los links de los archivos Markdown.
 const mdLinks = (route, options) => new Promise((resolve, reject) => {
+  // Verificar si la ruta existe
   if (!fs.existsSync(route)) {
     reject(new Error('La ruta no existe'));
   }
@@ -20,30 +22,35 @@ const mdLinks = (route, options) => new Promise((resolve, reject) => {
   let linksMds = [];
   let mdFiles = [];
 
+  // Verificar si la ruta es un archivo Markdown o un directorio
   if (!isMdFile && !isDir) {
     reject(new Error('No es un archivo .md ni un directorio'));
   }
 
+  // Si es un directorio, obtener todos los archivos Markdown dentro
   if (isDir) {
     mdFiles = getMdFilesInDirectories(absolutePath);
   } else if (isMdFile) {
     mdFiles.push(absolutePath);
   }
 
+  // Si no hay archivos Markdown, rechazar
   if (mdFiles.length === 0) {
     reject(new Error('No hay archivos .md'));
   }
 
+  // Leer el contenido de los archivos Markdown y extraer los links
   if (mdFiles && mdFiles.length > 0) {
     const contentMdFiles = readMdFiles(mdFiles);
     linksMds = getLinks(contentMdFiles, mdFiles);
   }
 
+  // Si no hay opciones proporcionadas, resolver con la información básica de los links
   if (!options.validate && !options.stats) {
     const noOptionsInfo = linksMds;
     resolve({ noOptionsInfo });
-    // eslint-disable-next-line max-len
-  } else if ((options.validate && options.stats) || (options.validate && !options.stats) || (options.stats && !options.validate)) {
+    //  Si hay opciones, validar los links y/o calcular estadísticas
+  } else if (options.validate || options.stats) {
     Promise.all(linksMds.map((singleLink) => validateLink(singleLink.href)))
       .then((validatedLinks) => {
         const statsOutput = calculateStats(validatedLinks);

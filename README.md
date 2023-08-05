@@ -1,5 +1,7 @@
 # Markdown Links
 
+![¡Bienvenidoa a md-links!](https://github.com/paolandre/DEV007-md-links/assets/129551206/b6a35f97-8915-4054-8f58-f5e1e024ca6d)
+
 ## Índice
 
 * [1. Descripción](#1-descripción)
@@ -7,8 +9,8 @@
 * [3. Uso](#3-uso)
 * [4. Opciones](#4-opciones)
 * [5. Requisitos](#5-requisitos)
-* [6. Diagrama de flujo](#6-diagrama)
-* [7. Test unitarios](#7-tests)
+* [6. Diagrama de flujo](#6-diagrama-de-flujo)
+* [7. Test unitarios](#7-tests-unitarios)
 
 
 ***
@@ -30,13 +32,13 @@ Para poder utilizar la librería "md-links" en tu proyecto, sigue estos pasos:
 
 * Ejecuta el siguiente comando para instalar la librería "md-links" de manera global en tu sistema:
 
-npm install -g md-links
+`npm install -g md-links-validator-stats`
 
 Esto te permitirá usar la herramienta "md-links" en cualquier proyecto y desde cualquier ubicación en tu computadora.
 
 Si prefieres instalar la librería solo en tu proyecto actual, puedes ejecutar el siguiente comando en la carpeta raíz de tu proyecto:
 
-npm install md-links
+`npm i md-links-validator-stats`
 
 Esto instalará las siguientes librerías y herramientas utilizadas por md-links:
 
@@ -54,7 +56,7 @@ Una vez que has instalado la librería "md-links" en tu proyecto, puedes comenza
 
 Para usar "md-links" desde la línea de comandos, simplemente abre una terminal o línea de comandos en la ubicación de tu proyecto y ejecuta el siguiente comando:
 
-* `md-links <path-to-file-or-directory>`
+`md-links <path-to-file-or-directory>`
 
 Reemplaza <path-to-file-or-directory> con la ruta al archivo o directorio que deseas analizar. "md-links" analizará los archivos Markdown en esa ubicación y te mostrará información sobre los enlaces encontrados, incluyendo la URL, el texto del enlace y el estado de la URL.
 
@@ -70,15 +72,15 @@ Adicionalmente, puedes agregar las siguientes opciones para obtener información
 
 * Analizar un archivo específico:
 
-* `md-links example.md`
+`md-links example.md`
 
 * Analizar un directorio:
 
-* `md-links docs`
+`md-links docs`
 
 * Analizar un directorio o archivo con opciones de validación y estadísticas:
 
-* `md-links docs --validate --stats`
+`md-links docs --validate --stats`
 
 ## 4. Opciones
 
@@ -90,7 +92,7 @@ Al agregar esta opción, "md-links" realizará una petición HTTP a cada URL enc
 
 * Ejemplo de uso:
 
-* `md-links <path> --validate>`
+`md-links <path> --validate>`
 
 ### 4.2. Opción --stats
 
@@ -98,7 +100,7 @@ La opción --stats muestra un resumen estadístico de los enlaces encontrados en
 
 * Ejemplo de uso:
 
-* `md-links <path> --stats`
+`md-links <path> --stats`
 
 ### 4.3. Combinación de opciones
 
@@ -106,7 +108,7 @@ Puedes combinar las opciones --validate y --stats para obtener un resumen que in
 
 * Ejemplo de uso:
 
-* `md-links <path> --validate --stats`
+`md-links <path> --validate --stats`
 
 ### 4.4. Opción --help
 
@@ -114,7 +116,7 @@ Si en algún momento necesitas recordar las opciones disponibles y su uso, puede
 
 * Ejemplo de uso:
 
-* `md-links --help`
+`md-links --help`
 
 Con estas opciones, puedes personalizar el análisis de "md-links" según tus necesidades y obtener la información que requieras sobre los enlaces en tus archivos Markdown.
 
@@ -136,9 +138,14 @@ Antes de utilizar la librería "md-links", asegúrate de cumplir con los siguien
 
 El diagrama de flujo ha sido una herramienta valiosa para el desarrollo de "md-links", permitiendo una comprensión clara del flujo de trabajo. Este diagrama de flujo representa la estructura general de "md-links":
 
-### A. API
+### 6.1 API
 
-### B. CLI
+![API](https://github.com/paolandre/DEV007-md-links/assets/129551206/6968546a-d40a-4d1d-902a-4b385d6eb62e)
+
+
+### 6.2 CLI
+
+![CLI](https://github.com/paolandre/DEV007-md-links/assets/129551206/d0d4a7f3-c18a-4314-8f5c-5f84866a8ee3)
 
 
 ## 7. Tests unitarios
