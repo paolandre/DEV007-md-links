@@ -10,7 +10,7 @@ import validateLink from './validate.js';
 import calculateStats from './stats.js';
 
 // Función principal de mdLinks: Analiza y extrae los links de los archivos Markdown.
-const mdLinks = (route, options) => new Promise((resolve, reject) => {
+const mdLinks = (route, options = {}) => new Promise((resolve, reject) => {
   // Verificar si la ruta existe
   if (!fs.existsSync(route)) {
     reject(new Error('La ruta no existe'));
