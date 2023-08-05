@@ -11,7 +11,7 @@ const route = args[0];
 
 if (!route || args.includes('--help')) {
   const showWelcomeMessage = () => {
-    const welcomeTitle = gradient.morning('¡Bienvenido a md-links!', { fontSize: 100 });
+    const welcomeTitle = gradient.morning('¡Bienvenido/a a md-links!', { fontSize: 100 });
     const usage = chalk.green('Uso: md-links <path-to-file> [options]\n');
     const optionsHeader = chalk.magenta('Opciones:\n');
     const validateOption = `${chalk.cyan('--validate   ')}Valida si los links están funcionando.\n`;

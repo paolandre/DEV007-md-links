@@ -7,8 +7,8 @@
 * [3. Uso](#3-uso)
 * [4. Opciones](#4-opciones)
 * [5. Requisitos](#5-requisitos)
-* [6. Diagrama de flujo](#6-diagrama)
-* [7. Test unitarios](#7-tests)
+* [6. Diagrama de flujo](#6-diagrama-de-flujo)
+* [7. Test unitarios](#7-tests-unitarios)
 
 
 ***
@@ -30,13 +30,13 @@ Para poder utilizar la librería "md-links" en tu proyecto, sigue estos pasos:
 
 * Ejecuta el siguiente comando para instalar la librería "md-links" de manera global en tu sistema:
 
-npm install -g md-links
+`npm install -g md-links-validator-stats`
 
 Esto te permitirá usar la herramienta "md-links" en cualquier proyecto y desde cualquier ubicación en tu computadora.
 
 Si prefieres instalar la librería solo en tu proyecto actual, puedes ejecutar el siguiente comando en la carpeta raíz de tu proyecto:
 
-npm install md-links
+`npm i md-links-validator-stats`
 
 Esto instalará las siguientes librerías y herramientas utilizadas por md-links:
 
@@ -136,9 +136,9 @@ Antes de utilizar la librería "md-links", asegúrate de cumplir con los siguien
 
 El diagrama de flujo ha sido una herramienta valiosa para el desarrollo de "md-links", permitiendo una comprensión clara del flujo de trabajo. Este diagrama de flujo representa la estructura general de "md-links":
 
-### A. API
+### 6.1 API
 
-### B. CLI
+### 6.2 CLI
 
 
 ## 7. Tests unitarios
