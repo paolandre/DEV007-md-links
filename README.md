@@ -126,7 +126,7 @@ Recuerda que puedes utilizar estas opciones tanto desde la línea de comandos co
 
 Antes de utilizar la librería "md-links", asegúrate de cumplir con los siguientes requisitos:
 
-* Node.js: "md-links" es una herramienta de línea de comandos (CLI) que se ejecuta con Node.js. Asegúrate de tener Node.js instalado en tu computadora. Puedes descargar la última versión estable desde el sitio oficial: ![Node](https://nodejs.org/)
+* Node.js: "md-links" es una herramienta de línea de comandos (CLI) que se ejecuta con Node.js. Asegúrate de tener Node.js instalado en tu computadora. Puedes descargar la última versión estable desde el sitio oficial: [Node](https://nodejs.org/)
 
 * Sistema operativo: "md-links" es compatible con sistemas operativos Windows, macOS y Linux. Puedes utilizarlo en cualquiera de estos sistemas sin problemas.
 
@@ -151,6 +151,8 @@ El diagrama de flujo ha sido una herramienta valiosa para el desarrollo de "md-l
 ## 7. Tests unitarios
 
 Para garantizar el correcto funcionamiento de "md-links" y asegurar que cada una de sus funcionalidades trabaja como se espera, se han implementado pruebas unitarias exhaustivas utilizando el framework de pruebas Jest:
+
+![Tests](https://github.com/paolandre/DEV007-md-links/assets/129551206/15655a56-fd25-424a-a2fd-cc0df948ee58)
 
 
 
