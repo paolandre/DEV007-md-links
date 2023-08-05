@@ -2,60 +2,48 @@
 
 ## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-* [6. Entregables](#6-entregables)
-* [7. Hacker edition](#7-hacker-edition)
-* [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
-* [9. Checklist](#9-checklist)
-* [10. Achicando el problema](#10-achicando-el-problema)
+* [1. Descripción](#1-descripción)
+* [2. Instalación](#2-instalación)
+* [3. Uso](#3-uso)
+* [4. Opciones](#4-opciones)
+* [5. Ejemplos](#5-ejemplos)
+* [6. Fotos](#6-fotos)
+* [7. Requisitos](#7-requisitos)
+* [8. Créditos](#8-créditos)
+* [9. Licencia](#9-licencia)
+
 
 ***
 
-## 1. Preámbulo
+## 1. Descripción
 
-[Markdown](https://es.wikipedia.org/wiki/Markdown) es un lenguaje de marcado
-ligero muy popular entre developers. Es usado en muchísimas plataformas que
-manejan texto plano (GitHub, foros, blogs, ...) y es muy común
-encontrar varios archivos en ese formato en cualquier tipo de repositorio
-(empezando por el tradicional `README.md`).
+Markdown Links Validator es una herramienta de línea de comandos (CLI) y una librería en JavaScript que permite leer y analizar archivos en formato Markdown para verificar los links que contengan y reportar algunas estadísticas. Es especialmente útil para desarrolladores que trabajan con archivos Markdown que contienen enlaces a sitios web.
 
-Estos archivos `Markdown` normalmente contienen _links_ (vínculos/ligas) que
-muchas veces están rotos o ya no son válidos y eso perjudica mucho el valor de
-la información que se quiere compartir.
+La herramienta te permitirá obtener información sobre los enlaces encontrados, como la URL, el texto anclado y la ruta del archivo donde se encontraron los enlaces. Además, podrás validar los enlaces realizando peticiones HTTP para comprobar su estado (ok o fail).
 
-Dentro de una comunidad de código abierto, nos han propuesto crear una
-herramienta usando [Node.js](https://nodejs.org/), que lea y analice archivos
-en formato `Markdown`, para verificar los links que contengan y reportar
-algunas estadísticas.
+## 2. Instalación
 
-![md-links](https://user-images.githubusercontent.com/110297/42118443-b7a5f1f0-7bc8-11e8-96ad-9cc5593715a6.jpg)
+Para poder utilizar la librería "md-links" en tu proyecto, sigue estos pasos:
 
-## 2. Resumen del proyecto
+Asegúrate de tener Node.js instalado en tu computadora. Puedes descargar la última versión estable desde el sitio oficial: https://nodejs.org/
 
-En este proyecto crearás una herramienta de línea de comando (CLI) así como tu
-propia librería (o biblioteca - library) en JavaScript.
+Crea un nuevo directorio en tu proyecto si aún no tienes uno, o asegúrate de estar ubicado en la carpeta raíz de tu proyecto.
 
-En esta oportunidad nos alejamos un poco del navegador para construir un
-programa que se ejecute usando Node.js. Aprenderemos sobre procesos
-(`process.env`, `process.argv`, ...), cómo interactuar con el sistema archivos,
-cómo hacer consultas de red, etc.
+Abre una terminal o línea de comandos en tu sistema operativo.
 
-[Node.js](https://nodejs.org/es/) es un entorno de ejecución para JavaScript
-construido con el [motor de JavaScript V8 de Chrome](https://developers.google.com/v8/).
-Esto nos va a permitir ejecutar JavaScript en el entorno del sistema operativo,
-ya sea tu máquina o un servidor, lo cual nos abre las puertas para poder
-interactuar con el sistema en sí, archivos, redes, etc.
+Ejecuta el siguiente comando para instalar la librería "md-links" de manera global en tu sistema:
 
-Diseñar tu propia librería es una experiencia fundamental para cualquier
-desarrolladora porque que te obliga a pensar en la interfaz (API) de tus
-_módulos_ y cómo será usado por otras developers. Debes tener especial
-consideración en peculiaridades del lenguaje, convenciones y buenas prácticas.
+npm install -g md-links
 
-## 3. Objetivos de aprendizaje
+Esto te permitirá usar la herramienta "md-links" en cualquier proyecto y desde cualquier ubicación en tu computadora.
+
+Si prefieres instalar la librería solo en tu proyecto actual, puedes ejecutar el siguiente comando en la carpeta raíz de tu proyecto:
+
+npm install md-links
+
+¡Listo! Ahora ya tienes la librería "md-links" instalada en tu proyecto. Puedes comenzar a usarla para analizar y obtener información sobre los enlaces presentes en tus archivos Markdown.
+
+## 3. Uso
 
 Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en tu proyecto. Piensa en eso al decidir tu estrategia de trabajo.
 
