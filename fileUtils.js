@@ -1,8 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
-/* eslint-disable max-len */
 import fs from 'fs';
-import chalk from 'chalk';
 import path from 'path';
 
 //  Función para obtener los archivos de un directorio
@@ -11,7 +7,6 @@ export const getMdFilesInDirectories = (directory) => {
 
   // Función recursiva para explorar los archivos y directorios dentro del  directorio
   const inCurrentDirectory = (currentDirectory) => {
-    console.log(chalk.inverse.magenta('entra a la función recursiva'));
     // Obtiene la lista de archivos en el directorio actual
     const files = fs.readdirSync(currentDirectory);
     // Itera sobre los archivos
@@ -32,7 +27,6 @@ export const getMdFilesInDirectories = (directory) => {
 
   // Llamada inicial a la función inDirectory
   inCurrentDirectory(directory);
-  console.log(chalk.inverse.magenta('Llama a la función recursiva'));
   return filesMD;
 };
 
@@ -41,7 +35,6 @@ export const convertToAbsolutePath = (route) => {
   if (!path.isAbsolute(route)) {
     // Convierte la ruta en absoluta y la asigna a absolutePath
     const absolutePath = path.resolve(route);
-    console.log(chalk.inverse.magenta('Convierte a ruta absoluta'));
     return absolutePath;
   }
   return route; // Si ya es una ruta absoluta, retorna la ruta sin modificar
@@ -52,7 +45,6 @@ export const arrayFile = (absolutePath) => {
   let mdFileArray = [];
   if (path.extname(absolutePath) === '.md') {
     mdFileArray = [absolutePath];
-    console.log(chalk.inverse.magenta('Almacena el archivo en un array'));
   }
   return (mdFileArray);
 };
@@ -66,6 +58,5 @@ export const directory = (absolutePath) => {
 // Verificar si es un archivo .md
 export const mdFile = (absolutePath) => {
   const isAmdFile = path.extname(absolutePath) === '.md';
-  console.log(chalk.inverse.magenta('Es un archivo md'));
   return isAmdFile;
 };
