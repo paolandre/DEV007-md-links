@@ -1,4 +1,4 @@
-#!/usr/bin / env node
+#!/usr/bin/env node
 /* eslint-disable no-console */
 import chalk from 'chalk';
 import process from 'process';
@@ -16,8 +16,9 @@ if (!route || args.includes('--help')) {
     const optionsHeader = chalk.magenta('Opciones:\n');
     const validateOption = `${chalk.cyan('--validate   ')}Valida si los links están funcionando.\n`;
     const statsOption = `${chalk.cyan('--stats      ')}Muestra estadísticas básicas sobre los links.\n`;
+    const statsAndValidateOption = `${chalk.cyan('--stats --validate  ')}Valida los links y muestra sus estadísticas básicas.\n`;
 
-    const message = `${welcomeTitle}\n\n${usage}${optionsHeader}${validateOption}${statsOption}`;
+    const message = `${welcomeTitle}\n\n${usage}${optionsHeader}${validateOption}${statsOption}${statsAndValidateOption}`;
 
     const formattedMessage = boxen(message, {
       padding: 1,
@@ -32,19 +33,32 @@ if (!route || args.includes('--help')) {
   showWelcomeMessage();
 }
 
+const validOptions = ['--validate', '--stats', '--help'];
+
 const parseOptions = (opciones) => {
   const options = {
     validate: false,
     stats: false,
   };
 
-  if (opciones.includes('--validate')) {
-    options.validate = true;
-  }
-
-  if (opciones.includes('--stats')) {
-    options.stats = true;
-  }
+  opciones.forEach((opt) => {
+    if (!validOptions.includes(opt)) {
+      const errorMessage = gradient.morning(`Error: Opción desconocida '${opt}'. Usa '--help' para ver las opciones válidas.`);
+      const formattedMessage = boxen(errorMessage, {
+        padding: 1,
+        borderStyle: 'double',
+        borderColor: 'cyan',
+      });
+      console.error(formattedMessage);
+      process.exit(1);
+    }
+    if (opt === '--validate') {
+      options.validate = true;
+    }
+    if (opt === '--stats') {
+      options.stats = true;
+    }
+  });
 
   return options;
 };

@@ -1,6 +1,6 @@
 {
   "name": "md-links-validator-stats",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "engines": {
     "node": ">=16.x"
   },
@@ -20,7 +20,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paolandre/DEV007-md-links.git"
+    "url": "git+https://github.com/paolandre/DEV007-md-links"
   },
   "bootcamp": {
     "createdAt": "2023-06-20T14:05:58.211Z",
@@ -44,7 +44,8 @@
     "boxen": "^7.1.1",
     "chalk": "^4.1.2",
     "eslint-config-airbnb": "^19.0.4",
-    "gradient-string": "^2.0.2"
+    "gradient-string": "^2.0.2",
+    "md-links-validator-stats": "^0.1.1"
   },
   "scripts": {
     "start": "babel-node mdLinks.js",
