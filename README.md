@@ -56,7 +56,7 @@ Una vez que has instalado la librería "md-links" en tu proyecto, puedes comenza
 
 Para usar "md-links" desde la línea de comandos, simplemente abre una terminal o línea de comandos en la ubicación de tu proyecto y ejecuta el siguiente comando:
 
-* `md-links <path-to-file-or-directory>`
+`md-links <path-to-file-or-directory>`
 
 Reemplaza <path-to-file-or-directory> con la ruta al archivo o directorio que deseas analizar. "md-links" analizará los archivos Markdown en esa ubicación y te mostrará información sobre los enlaces encontrados, incluyendo la URL, el texto del enlace y el estado de la URL.
 
