@@ -70,15 +70,15 @@ Adicionalmente, puedes agregar las siguientes opciones para obtener información
 
 * Analizar un archivo específico:
 
-* `md-links example.md`
+`md-links example.md`
 
 * Analizar un directorio:
 
-* `md-links docs`
+`md-links docs`
 
 * Analizar un directorio o archivo con opciones de validación y estadísticas:
 
-* `md-links docs --validate --stats`
+`md-links docs --validate --stats`
 
 ## 4. Opciones
 
@@ -90,7 +90,7 @@ Al agregar esta opción, "md-links" realizará una petición HTTP a cada URL enc
 
 * Ejemplo de uso:
 
-* `md-links <path> --validate>`
+`md-links <path> --validate>`
 
 ### 4.2. Opción --stats
 
@@ -98,7 +98,7 @@ La opción --stats muestra un resumen estadístico de los enlaces encontrados en
 
 * Ejemplo de uso:
 
-* `md-links <path> --stats`
+`md-links <path> --stats`
 
 ### 4.3. Combinación de opciones
 
@@ -106,7 +106,7 @@ Puedes combinar las opciones --validate y --stats para obtener un resumen que in
 
 * Ejemplo de uso:
 
-* `md-links <path> --validate --stats`
+`md-links <path> --validate --stats`
 
 ### 4.4. Opción --help
 
@@ -114,7 +114,7 @@ Si en algún momento necesitas recordar las opciones disponibles y su uso, puede
 
 * Ejemplo de uso:
 
-* `md-links --help`
+`md-links --help`
 
 Con estas opciones, puedes personalizar el análisis de "md-links" según tus necesidades y obtener la información que requieras sobre los enlaces en tus archivos Markdown.
 
