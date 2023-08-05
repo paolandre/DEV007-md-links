@@ -140,11 +140,13 @@ El diagrama de flujo ha sido una herramienta valiosa para el desarrollo de "md-l
 
 ### 6.1 API
 
-![API](https://github.com/paolandre/DEV007-md-links/assets/129551206/d4fa0847-58e5-4bba-b54a-7c24a560af38)
+![API](https://github.com/paolandre/DEV007-md-links/assets/129551206/6968546a-d40a-4d1d-902a-4b385d6eb62e)
+
 
 ### 6.2 CLI
 
-![CLI](https://github.com/paolandre/DEV007-md-links/assets/129551206/9c0503e8-08ba-447b-a053-84ea343f67aa)
+![CLI](https://github.com/paolandre/DEV007-md-links/assets/129551206/d0d4a7f3-c18a-4314-8f5c-5f84866a8ee3)
+
 
 ## 7. Tests unitarios
 
