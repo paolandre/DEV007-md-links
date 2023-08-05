@@ -9,6 +9,9 @@
     "version": "6.3.0",
     "commit": "e129ade681adff8cbb19f82e63f688fef2f08f32"
   },
+  "bin": {
+    "md-links": "src/cli.js"
+  },
   "type": "module",
   "devDependencies": {
     "@babel/cli": "^7.22.6",
@@ -24,9 +27,10 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "boxen": "^7.1.1",
     "chalk": "^4.1.2",
-    "cli-table3": "^0.6.3",
-    "eslint-config-airbnb": "^19.0.4"
+    "eslint-config-airbnb": "^19.0.4",
+    "gradient-string": "^2.0.2"
   },
   "scripts": {
     "start": "babel-node mdLinks.js",
