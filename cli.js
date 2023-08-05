@@ -9,6 +9,7 @@ import mdLinks from './mdLinks.js';
 const args = process.argv.slice(2);
 const route = args[0];
 
+// Opción de --help
 if (!route || args.includes('--help')) {
   const showWelcomeMessage = () => {
     const welcomeTitle = gradient.morning('¡Bienvenido/a a md-links!', { fontSize: 100 });
@@ -35,13 +36,14 @@ if (!route || args.includes('--help')) {
 
 const validOptions = ['--validate', '--stats', '--help'];
 
-const parseOptions = (opciones) => {
-  const options = {
+// Función para determinar las opciones y también la opción invalida
+const parseOptions = (options) => {
+  const parsedOptions = {
     validate: false,
     stats: false,
   };
 
-  opciones.forEach((opt) => {
+  options.forEach((opt) => {
     if (!validOptions.includes(opt)) {
       const errorMessage = gradient.morning(`Error: Opción desconocida '${opt}'. Usa '--help' para ver las opciones válidas.`);
       const formattedMessage = boxen(errorMessage, {
@@ -53,44 +55,47 @@ const parseOptions = (opciones) => {
       process.exit(1);
     }
     if (opt === '--validate') {
-      options.validate = true;
+      parsedOptions.validate = true;
     }
     if (opt === '--stats') {
-      options.stats = true;
+      parsedOptions.stats = true;
     }
   });
 
-  return options;
+  return parsedOptions;
 };
 
 const options = parseOptions(args.slice(1));
 
+// Implementación de la función mdLinks
 mdLinks(route, options)
   .then((result) => {
+    const { formattedLinks, statsOutput, noOptionsInfo } = result;
+
     if (!options.validate && !options.stats) {
-      result.noOptionsInfo.forEach((link) => {
-        console.log(gradient.cristal(`Texto: ${link.text}`));
+      noOptionsInfo.forEach((link) => {
+        console.log(chalk.magentaBright(`Texto: ${link.text}`));
         console.log(chalk.magentaBright(`Href: ${link.href}`));
         console.log(chalk.magentaBright(`File: ${link.file}\n`));
       });
       console.log(gradient.teen('Nota: Para obtener más información de los links, seleccione una opción entre --validate o --stats'));
     } else if (options.validate && options.stats) {
-      result.formattedLinks.forEach((link) => {
+      formattedLinks.forEach((link) => {
         console.log(chalk.magenta(`Texto: ${link.text}`));
         console.log(chalk.cyanBright(`Href: ${link.href}`));
         console.log(chalk.magentaBright(`File: ${link.file}`));
         console.log(chalk.magentaBright(`Status: ${link.status}`));
         console.log(gradient.summer(`Ok: ${link.ok}\n`));
       });
-      console.log(chalk.yellow.bold(`Total: ${result.statsOutput.Total}`));
-      console.log(chalk.yellowBright(`Unique: ${result.statsOutput.Unique}`));
-      console.log(gradient.morning(`Broken: ${result.statsOutput.Broken}\n`));
+      console.log(chalk.yellow.bold(`Total: ${statsOutput.Total}`));
+      console.log(chalk.yellowBright(`Unique: ${statsOutput.Unique}`));
+      console.log(gradient.morning(`Broken: ${statsOutput.Broken}\n`));
     } else if (options.stats) {
-      console.log(chalk.yellow.bold(`Total: ${result.statsOutput.Total}`));
-      console.log(chalk.yellowBright(`Unique: ${result.statsOutput.Unique}`));
-      console.log(gradient.morning(`Broken: ${result.statsOutput.Broken}\n`));
+      console.log(chalk.yellow.bold(`Total: ${statsOutput.Total}`));
+      console.log(chalk.yellowBright(`Unique: ${statsOutput.Unique}`));
+      console.log(gradient.morning(`Broken: ${statsOutput.Broken}\n`));
     } else if (options.validate) {
-      result.formattedLinks.forEach((link) => {
+      formattedLinks.forEach((link) => {
         console.log(chalk.magenta(`Texto: ${link.text}`));
         console.log(chalk.cyanBright(`Href: ${link.href}`));
         console.log(chalk.magentaBright(`File: ${link.file}`));

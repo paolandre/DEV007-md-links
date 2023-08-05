@@ -33,7 +33,6 @@ export const getMdFilesInDirectories = (directory) => {
 // Si la ruta es relativa, la convierte en absoluta
 export const convertToAbsolutePath = (route) => {
   if (!path.isAbsolute(route)) {
-    // Convierte la ruta en absoluta y la asigna a absolutePath
     const absolutePath = path.resolve(route);
     return absolutePath;
   }
