@@ -56,7 +56,7 @@ Una vez que has instalado la librería "md-links" en tu proyecto, puedes comenza
 
 Para usar "md-links" desde la línea de comandos, simplemente abre una terminal o línea de comandos en la ubicación de tu proyecto y ejecuta el siguiente comando:
 
-* `md-links <path-to-file-or-directory>`
+`md-links <path-to-file-or-directory>`
 
 Reemplaza <path-to-file-or-directory> con la ruta al archivo o directorio que deseas analizar. "md-links" analizará los archivos Markdown en esa ubicación y te mostrará información sobre los enlaces encontrados, incluyendo la URL, el texto del enlace y el estado de la URL.
 
@@ -140,7 +140,12 @@ El diagrama de flujo ha sido una herramienta valiosa para el desarrollo de "md-l
 
 ### 6.1 API
 
+![API](https://github.com/paolandre/DEV007-md-links/assets/129551206/6968546a-d40a-4d1d-902a-4b385d6eb62e)
+
+
 ### 6.2 CLI
+
+![CLI](https://github.com/paolandre/DEV007-md-links/assets/129551206/d0d4a7f3-c18a-4314-8f5c-5f84866a8ee3)
 
 
 ## 7. Tests unitarios
