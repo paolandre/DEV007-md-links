@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
-/* eslint-disable max-len */
 
 import chalk from 'chalk';
 import process from 'process';
@@ -26,25 +24,42 @@ const parseOptions = (opciones) => {
   return options;
 };
 
-const options = parseOptions(args);
-
-//  RUTAS
-const rutaAbsolutaDirectorioDos = 'C:/Users/andre/OneDrive/Escritorio/Proyectos/Laboratoria/DEV007-md-links/Directorio Uno/Directorio Dos';
-const directorioRutaRelativa = 'Directorio Uno';
-const directorioVacio = 'Directorio Uno/Directorio Dos/Directorio Cuatro';
-const archivoMD = 'README.md';
-const archivoNoMD = 'example.js';
-const rutaAbsolutaArchivo = 'C:/Users/andre/OneDrive/Escritorio/Proyectos/Laboratoria/DEV007-md-links/README.md';
-const rutaNoExiste = 'NoExiste.md';
-const rutaUnaCarpetaConArchivo = 'Directorio Uno/Directorio Tres';
-const noLinks = 'Directorio Uno/Directorio Tres/sinlinks.md';
-const archivoConPocosLinks = 'Directorio Uno/Directorio Tres/md-uno.md';
+const options = parseOptions(args.slice(1));
 
 mdLinks(route, options)
-  .then(({ statsOutput, formattedLinks }) => {
-    console.log(chalk.cyan(formattedLinks));
-    console.log(chalk.magenta(statsOutput));
+  .then((result) => {
+    if (!options.validate && !options.stats) {
+      result.noOptionsInfo.forEach((link) => {
+        console.log(chalk.cyanBright(`Texto: ${link.text}`));
+        console.log(chalk.magentaBright(`Href: ${link.href}`));
+        console.log(chalk.magentaBright(`File: ${link.file}\n`));
+      });
+      console.log(chalk.green('Nota: Para obtener más información de los links, seleccione una opción entre --validate o --stats'));
+    } else if (options.validate && options.stats) {
+      result.formattedLinks.forEach((link) => {
+        console.log(chalk.cyanBright(`Texto: ${link.text}`));
+        console.log(chalk.magentaBright(`Href: ${link.href}`));
+        console.log(chalk.magentaBright(`File: ${link.file}`));
+        console.log(chalk.magentaBright(`Status: ${link.status}`));
+        console.log(chalk.magentaBright(`Ok: ${link.ok}\n`));
+      });
+      console.log(chalk.yellow.bold(`Total: ${result.statsOutput.Total}`));
+      console.log(chalk.yellowBright(`Unique: ${result.statsOutput.Unique}`));
+      console.log(chalk.yellowBright(`Broken: ${result.statsOutput.Broken}\n`));
+    } else if (options.stats) {
+      console.log(chalk.yellow.bold(`Total: ${result.statsOutput.Total}`));
+      console.log(chalk.yellowBright(`Unique: ${result.statsOutput.Unique}`));
+      console.log(chalk.yellowBright(`Broken: ${result.statsOutput.Broken}\n`));
+    } else if (options.validate) {
+      result.formattedLinks.forEach((link) => {
+        console.log(chalk.cyanBright(`Texto: ${link.text}`));
+        console.log(chalk.magentaBright(`Href: ${link.href}`));
+        console.log(chalk.magentaBright(`File: ${link.file}`));
+        console.log(chalk.magentaBright(`Status: ${link.status}`));
+        console.log(chalk.magentaBright(`Ok: ${link.ok}\n`));
+      });
+    }
   })
   .catch((error) => {
-    console.error(chalk.magenta('Error:', error));
+    console.error(error);
   });

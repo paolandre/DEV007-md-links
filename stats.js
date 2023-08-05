@@ -1,16 +1,19 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
-/* eslint-disable max-len */
-
 const calculateStats = (linksMds) => {
   // Creamos un set para almacenar los links únicos
-  const uniqueUrls = new Set();
-  linksMds.forEach((link) => uniqueUrls.add(link.url));
+  const uniqueLinks = new Set();
+  let brokenLinks = 0;
 
-  // Construimos el output
-  let statsOutput = '';
-  statsOutput += `Total: ${linksMds.length}\n`;
-  statsOutput += `Unique: ${uniqueUrls.size}\n`;
+  linksMds.forEach((link) => {
+    uniqueLinks.add(link.href);
+    if (link.status >= 400) brokenLinks += 1;
+  });
+
+  // Construimos el objeto output
+  const statsOutput = {
+    Total: linksMds.length,
+    Unique: uniqueLinks.size,
+    Broken: brokenLinks,
+  };
 
   return statsOutput;
 };
