@@ -126,7 +126,7 @@ Recuerda que puedes utilizar estas opciones tanto desde la línea de comandos co
 
 Antes de utilizar la librería "md-links", asegúrate de cumplir con los siguientes requisitos:
 
-* Node.js: "md-links" es una herramienta de línea de comandos (CLI) que se ejecuta con Node.js. Asegúrate de tener Node.js instalado en tu computadora. Puedes descargar la última versión estable desde el sitio oficial: https://nodejs.org/
+* Node.js: "md-links" es una herramienta de línea de comandos (CLI) que se ejecuta con Node.js. Asegúrate de tener Node.js instalado en tu computadora. Puedes descargar la última versión estable desde el sitio oficial: [Node.js](https://nodejs.org/)
 
 * Sistema operativo: "md-links" es compatible con sistemas operativos Windows, macOS y Linux. Puedes utilizarlo en cualquiera de estos sistemas sin problemas.
 
