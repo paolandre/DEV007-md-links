@@ -59,3 +59,11 @@ export const mdFile = (absolutePath) => {
   const isAmdFile = path.extname(absolutePath) === '.md';
   return isAmdFile;
 };
+
+// Función para truncar el texto
+export const truncateText = (text, maxLength) => {
+  if (text.length <= maxLength) {
+    return text;
+  }
+  return `${text.slice(0, maxLength)}...`;
+};
