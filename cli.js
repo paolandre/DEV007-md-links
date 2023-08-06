@@ -5,6 +5,7 @@ import process from 'process';
 import boxen from 'boxen';
 import gradient from 'gradient-string';
 import mdLinks from './mdLinks.js';
+import { truncateText } from './fileUtils.js';
 
 const args = process.argv.slice(2);
 const route = args[0];
@@ -74,14 +75,14 @@ mdLinks(route, options)
 
     if (!options.validate && !options.stats) {
       noOptionsInfo.forEach((link) => {
-        console.log(chalk.magentaBright(`Texto: ${link.text}`));
+        console.log(gradient.morning(`Texto: ${truncateText(link.text, 50)}`));
         console.log(chalk.magentaBright(`Href: ${link.href}`));
         console.log(chalk.magentaBright(`File: ${link.file}\n`));
       });
       console.log(gradient.teen('Nota: Para obtener más información de los links, seleccione una opción entre --validate o --stats'));
     } else if (options.validate && options.stats) {
       formattedLinks.forEach((link) => {
-        console.log(chalk.magenta(`Texto: ${link.text}`));
+        console.log(chalk.magenta(`Texto: ${truncateText(link.text, 50)}`));
         console.log(chalk.cyanBright(`Href: ${link.href}`));
         console.log(chalk.magentaBright(`File: ${link.file}`));
         console.log(chalk.magentaBright(`Status: ${link.status}`));
@@ -96,7 +97,7 @@ mdLinks(route, options)
       console.log(gradient.morning(`Broken: ${statsOutput.Broken}\n`));
     } else if (options.validate) {
       formattedLinks.forEach((link) => {
-        console.log(chalk.magenta(`Texto: ${link.text}`));
+        console.log(chalk.magenta(`Texto: ${truncateText(link.text, 50)}`));
         console.log(chalk.cyanBright(`Href: ${link.href}`));
         console.log(chalk.magentaBright(`File: ${link.file}`));
         console.log(chalk.magentaBright(`Status: ${link.status}`));
