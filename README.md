@@ -68,20 +68,6 @@ Adicionalmente, puedes agregar las siguientes opciones para obtener información
 
 * `--validate --stats:` Combina las opciones de validación y estadísticas para obtener un resumen que incluya el total de enlaces, enlaces únicos y enlaces rotos.
 
-##### Ejemplos:
-
-* Analizar un archivo específico:
-
-`md-links example.md`
-
-* Analizar un directorio:
-
-`md-links docs`
-
-* Analizar un directorio o archivo con opciones de validación y estadísticas:
-
-`md-links docs --validate --stats`
-
 ## 4. Opciones
 
 "md-links" cuenta con algunas opciones que puedes utilizar para personalizar el análisis de los enlaces en tus archivos Markdown.
