@@ -72,6 +72,8 @@ Al agregar esta opción, "markdownlinks-stats" realizará una petición HTTP a c
 
 `npx markdownlinks-stats <directorio o archivo> --validate`
 
+![Validate](https://github.com/paolandre/DEV007-md-links/assets/129551206/82083a38-90ec-42df-8dc1-3eeda3bfe5ac)
+
 ### 4.2. Opción --stats
 
 La opción --stats muestra un resumen estadístico de los enlaces encontrados en tus archivos Markdown. Incluye el número total de enlaces y el número de enlaces únicos. Esta opción es útil para obtener una visión general de la cantidad de enlaces presentes en tus archivos.
@@ -79,6 +81,9 @@ La opción --stats muestra un resumen estadístico de los enlaces encontrados en
 * Ejemplo de uso:
 
 `npx markdownlinks-stats <directorio o archivo> --stats`
+
+![stats](https://github.com/paolandre/DEV007-md-links/assets/129551206/59fcc122-4270-435b-ab03-0fc3dd90d936)
+![stats directorio](https://github.com/paolandre/DEV007-md-links/assets/129551206/3bdc821a-5b2b-4c8e-8745-d111515d3406)
 
 ### 4.3. Combinación de opciones
 
@@ -88,6 +93,8 @@ Puedes combinar las opciones --validate y --stats para obtener un resumen que in
 
 `npx markdownlinks-stats <directorio o archivo> --stats --validate`
 
+![dos opciones](https://github.com/paolandre/DEV007-md-links/assets/129551206/55b53026-6c9d-4e75-9e30-53858ca3c206)
+
 ### 4.4. Opción --help
 
 Si en algún momento necesitas recordar las opciones disponibles y su uso, puedes utilizar la opción --help para mostrar la ayuda en la terminal.
@@ -96,17 +103,23 @@ Si en algún momento necesitas recordar las opciones disponibles y su uso, puede
 
 `npx markdownlinks-stats --help`
 
+![help](https://github.com/paolandre/DEV007-md-links/assets/129551206/b1cae20d-74b0-4b9a-8606-0fd5745c1f5f)
+
 ### 4.5. Sin opciones
 
-Si no quieres validar los enlaces, ni quieres ver sus estadisticas, pero quieres ver información básica de los links,puedes usar solo el nombre de la ruta.
+Si no quieres validar los enlaces, ni quieres ver sus estadisticas, pero quieres ver información básica de los enlaces, puedes usar solo el nombre de la ruta.
 
 * Ejemplo de uso:
 
 `npx markdownlinks-stats <directorio o archivo.md>`
 
+![sin opciones](https://github.com/paolandre/DEV007-md-links/assets/129551206/41fb3873-8820-40f9-8add-210598e72c03)
+
 ### 4.6. Opción no valida
 
 También recibirás un mensaje si tu opción es invalida.
+
+![Opcion no valida](https://github.com/paolandre/DEV007-md-links/assets/129551206/ec337a8f-ce9e-4f69-98fb-6d03456ac22c)
 
 Con estas opciones, puedes personalizar el análisis de "markdownlinks-stats" según tus necesidades y obtener la información que requieras sobre los enlaces en tus archivos Markdown.
 
