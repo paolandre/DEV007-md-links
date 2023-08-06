@@ -153,7 +153,8 @@ El diagrama de flujo ha sido una herramienta valiosa para el desarrollo de "mark
 
 Para garantizar el correcto funcionamiento de "markdownlinks-stats" y asegurar que cada una de sus funcionalidades trabaja como se espera, se han implementado pruebas unitarias exhaustivas utilizando el framework de pruebas Jest:
 
-![Tests](https://github.com/paolandre/DEV007-md-links/assets/129551206/99425bb4-3360-4029-975a-07ea7a7d77f6)
+![Tests](https://github.com/paolandre/DEV007-md-links/assets/129551206/691ad6d8-34ca-4454-a1ae-f7d17f5f04d3)
+
 
 
 
