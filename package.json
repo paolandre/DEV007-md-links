@@ -1,5 +1,5 @@
 {
-  "name": "md-links-validator-stats",
+  "name": "markdownlinks-stats",
   "version": "0.2.2",
   "engines": {
     "node": ">=16.x"
@@ -9,7 +9,7 @@
   "type": "module",
   "main": "mdLinks.js",
   "bin": {
-    "mdLinks": "cli.js"
+    "markdownlinks-stats": "cli.js"
   },
   "keywords": [
     "node.js",
@@ -44,8 +44,7 @@
     "boxen": "^7.1.1",
     "chalk": "^4.1.2",
     "eslint-config-airbnb": "^19.0.4",
-    "gradient-string": "^2.0.2",
-    "md-links-validator-stats": "^0.1.1"
+    "gradient-string": "^2.0.2"
   },
   "scripts": {
     "start": "babel-node mdLinks.js",
